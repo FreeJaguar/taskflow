@@ -4,30 +4,30 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import { 
-  Users, 
-  Plus, 
-  Search, 
-  Filter, 
-  BarChart3, 
-  Calendar, 
-  Tag, 
-  Clock, 
-  CheckCircle, 
-  AlertCircle, 
-  Circle, 
-  Pause,
-  X,
-  Edit,
-  Save,
-  Download,
-  Sun,
-  Moon,
-  User,
-  Settings,
-  LogOut,
-  Trash2,
-  FileText
-} from 'lucide-react'
+  FiUsers as Users,
+  FiPlus as Plus,
+  FiSearch as Search,
+  FiFilter as Filter,
+  FiBarChart3 as BarChart3,
+  FiCalendar as Calendar,
+  FiTag as Tag,
+  FiClock as Clock,
+  FiCheckCircle as CheckCircle,
+  FiAlertCircle as AlertCircle,
+  FiCircle as Circle,
+  FiPause as Pause,
+  FiX as X,
+  FiEdit as Edit,
+  FiSave as Save,
+  FiDownload as Download,
+  FiSun as Sun,
+  FiMoon as Moon,
+  FiUser as User,
+  FiSettings as Settings,
+  FiLogOut as LogOut,
+  FiTrash2 as Trash2,
+  FiFileText as FileText
+} from 'react-icons/fi'
 import { signOut } from 'next-auth/react'
 
 interface Task {

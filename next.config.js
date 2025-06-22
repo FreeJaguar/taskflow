@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs']
   },
+  transpilePackages: ['lucide-react'],
   images: {
     domains: [],
   },

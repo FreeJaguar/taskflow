@@ -56,38 +56,32 @@ async function main() {
 
   console.log('✅ Created workspaces')
 
-  await prisma.task.create({
-    data: {
+  const sampleTasks = [
+    {
       title: 'פיתוח מערכת אימות',
-      description: 'יישום מערכת התחברות וניהול משתמשים',
+      description: 'יישום מערכת התחברות וניהול משתמשים עם NextAuth',
       status: TaskStatus.IN_PROGRESS,
       priority: Priority.HIGH,
       assigneeId: admin.id,
       workspaceId: adminWorkspace.id,
-      tags: ['פיתוח', 'אבטחה'],
+      tags: ['פיתוח', 'אבטחה', 'NextAuth'],
       startDate: new Date('2025-06-01'),
       endDate: new Date('2025-06-20'),
     },
-  })
-
-  await prisma.task.create({
-    data: {
+    {
       title: 'עיצוב UI חדש',
-      description: 'עדכון הממשק הגרפי',
+      description: 'עדכון הממשק הגרפי לפי הדרישות החדשות',
       status: TaskStatus.OPEN,
       priority: Priority.MEDIUM,
       assigneeId: employee.id,
       workspaceId: employeeWorkspace.id,
-      tags: ['עיצוב', 'UI'],
+      tags: ['עיצוב', 'UI/UX'],
       startDate: new Date('2025-06-15'),
       endDate: new Date('2025-06-25'),
     },
-  })
-
-  await prisma.task.create({
-    data: {
+    {
       title: 'בדיקות איכות',
-      description: 'ביצוע בדיקות מקיפות',
+      description: 'ביצוע בדיקות מקיפות למערכת',
       status: TaskStatus.COMPLETED,
       priority: Priority.HIGH,
       assigneeId: employee.id,
@@ -96,11 +90,31 @@ async function main() {
       startDate: new Date('2025-05-20'),
       endDate: new Date('2025-06-10'),
     },
-  })
+    {
+      title: 'תיעוד טכני',
+      description: 'כתיבת תיעוד מפורט למערכת',
+      status: TaskStatus.PAUSED,
+      priority: Priority.LOW,
+      assigneeId: admin.id,
+      workspaceId: adminWorkspace.id,
+      tags: ['תיעוד'],
+      startDate: new Date('2025-06-05'),
+      endDate: new Date('2025-06-30'),
+    },
+  ]
+
+  for (const taskData of sampleTasks) {
+    await prisma.task.create({
+      data: taskData,
+    })
+  }
 
   console.log('✅ Created sample tasks')
-  console.log('🎉 Seed completed!')
-  console.log('📋 Login: admin@taskflow.com / 123456')
+  console.log('🎉 Seed completed successfully!')
+  
+  console.log('\n📋 Login credentials:')
+  console.log('Admin: admin@taskflow.com / 123456')
+  console.log('Employee: employee@taskflow.com / 123456')
 }
 
 main()
